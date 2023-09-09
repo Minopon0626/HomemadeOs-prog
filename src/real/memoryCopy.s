@@ -23,3 +23,4 @@ memcpy:
         mov edi, [ebp +  8]     ;EDI = コピー先;
         mov esi, [ebp + 12]     ;EDI = コピー元;
         mov ecx, [ebp + 16]     ;EDI = バイト数;
+        ;テスト用変更点

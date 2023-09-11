@@ -23,4 +23,20 @@ memcpy:
         mov edi, [ebp +  8]     ;EDI = コピー先;
         mov esi, [ebp + 12]     ;EDI = コピー元;
         mov ecx, [ebp + 16]     ;EDI = バイト数;
-        ;テスト用変更点
+
+        rep movsb               ; while (*EDI++ = +ESI++) ;
+
+        ;-----------------------
+        ; 【レジスタの復帰】
+        ;-----------------------
+        pop edi
+        pop esi
+        pop ecx
+
+        ;------------------------
+        ; 【スタックフレームの破棄】
+        ;------------------------
+        mov esp, ebp
+        pop ebp
+
+        ret

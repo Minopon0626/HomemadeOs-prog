@@ -1,7 +1,7 @@
 memcpy:
-        ;
-        ;
-        ;
+        ;-----------------------
+        ;【スタックフレームの構築】
+        ;-----------------------
                                 ;BP+8|バイト数
                                 ;BP+6|コピー元
                                 ;BP+4|コピー先
@@ -12,31 +12,31 @@ memcpy:
         ;-----------------------
         ;【レジスタの保存】
         ;-----------------------
-        push ecx
-        push esi
-        push edi
+        push cx
+        push si
+        push di
 
         ;-----------------------
         ; バイト単位でのコピー
         ;-----------------------
         cld                     ;DF = 0; //+方向
-        mov edi, [ebp +  8]     ;EDI = コピー先;
-        mov esi, [ebp + 12]     ;EDI = コピー元;
-        mov ecx, [ebp + 16]     ;EDI = バイト数;
+        mov di, [bp +  8]     ;EDI = コピー先;
+        mov si, [bp + 12]     ;EDI = コピー元;
+        mov cx, [bp + 16]     ;EDI = バイト数;
 
         rep movsb               ; while (*EDI++ = +ESI++) ;
 
         ;-----------------------
         ; 【レジスタの復帰】
         ;-----------------------
-        pop edi
-        pop esi
-        pop ecx
+        pop di
+        pop si
+        pop cx
 
         ;------------------------
         ; 【スタックフレームの破棄】
         ;------------------------
-        mov esp, ebp
-        pop ebp
+        mov sp, bp
+        pop bp
 
         ret

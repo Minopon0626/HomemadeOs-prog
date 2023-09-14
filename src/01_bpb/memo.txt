@@ -8,7 +8,6 @@ BPB(Boot Parameter Block:ブートパラメータブロック)
 IPL(Initial Program Loader:ブートプログラム)
     前提
         4Gバイトのリムーバブルディスクに保存されている
-    
 
 配置としては
     jmp命令(IPLの先頭にジャンプする)

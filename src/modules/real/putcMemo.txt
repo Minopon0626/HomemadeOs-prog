@@ -1,0 +1,17 @@
+putcの使用方法
+
+ソースファイルからは次のように指定
+    %include "../modules/real/putc.s"
+
+ブートプログラム側での使用例は次のように指定(この使用例では起動直後の画面にABCと文字が出力されるようになる)
+    push word 'A'
+    call putc
+    add sp, 2
+
+    push word 'B'
+    call putc
+    add sp, 2
+
+    push word 'C'
+    call putc
+    add sp, 2
